@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.35821.62 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS.CloneProgram", "ITS.CloneProgram.csproj", "{43F41731-CA6D-487F-AD28-509A431A94E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITS.CloneProgram.Test", "ITS.CloneProgram.Test\ITS.CloneProgram.Test.csproj", "{37684662-51C3-4218-BFEF-671ABEB31B80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43F41731-CA6D-487F-AD28-509A431A94E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F41731-CA6D-487F-AD28-509A431A94E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F41731-CA6D-487F-AD28-509A431A94E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F41731-CA6D-487F-AD28-509A431A94E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37684662-51C3-4218-BFEF-671ABEB31B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37684662-51C3-4218-BFEF-671ABEB31B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37684662-51C3-4218-BFEF-671ABEB31B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37684662-51C3-4218-BFEF-671ABEB31B80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {80AA78CB-C6E5-44A1-915B-6DC989774598}
+	EndGlobalSection
+EndGlobal
