@@ -15,6 +15,16 @@ namespace ITS.CloneProgram.Tests
 		}
 
 		[Fact]
+		public void Constructor_WithNullConnectionProvider_ThrowsArgumentNullException()
+		{
+			// Act & Assert
+			var ex = Assert.Throws<ArgumentNullException>(
+				() => new Services.CloneProgram((IConnectionStringProvider)null)
+			);
+			Assert.Equal("connectionProvider", ex.ParamName);
+		}
+
+		[Fact]
 		public void ValidateUser_WithValidId_ReturnsTrue()
 		{
 			// Arrange
