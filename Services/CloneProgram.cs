@@ -8,9 +8,11 @@ namespace ITS.CloneProgram.Services
 	{
 		private readonly IUserRepository _userRepository;
 
-		public CloneProgram()
+		public CloneProgram(IConnectionStringProvider connectionProvider)
 		{
-			var connectionProvider = new ConnectionStringProvider();
+			if (connectionProvider == null)
+				throw new ArgumentNullException(nameof(connectionProvider));
+
 			_userRepository = new UserRepository(connectionProvider.GetMasterConnectionString());
 		}
 
