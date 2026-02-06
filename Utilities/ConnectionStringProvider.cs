@@ -1,7 +1,5 @@
 ﻿using ITS.CloneProgram.Interfaces;
 using ITS.Configuration30;
-using System.Data;
-using System.Data.SqlClient;
 
 namespace ITS.CloneProgram.Utilities
 {
@@ -9,10 +7,7 @@ namespace ITS.CloneProgram.Utilities
 	{
 		public string GetMasterConnectionString()
 		{
-			IDbConnection masterConnection = new SqlConnection
-				(ConnectionManagement.GetConnectionString(DatabaseType.Master));
-
-			return masterConnection.ConnectionString;
+			return ConnectionManagement.GetConnectionString(DatabaseType.Master);
 		}
 	}
 }

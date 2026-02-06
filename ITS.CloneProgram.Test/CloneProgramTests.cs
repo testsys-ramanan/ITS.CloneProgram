@@ -6,10 +6,12 @@ namespace ITS.CloneProgram.Tests
 	public class CloneProgramTests
 	{
 		private readonly Mock<IUserRepository> _mockUserRepository;
+		private readonly Services.CloneProgram _cloneProgram;
 
 		public CloneProgramTests()
 		{
 			_mockUserRepository = new Mock<IUserRepository>();
+			_cloneProgram = new Services.CloneProgram(_mockUserRepository.Object);
 		}
 
 		[Fact]
@@ -19,9 +21,8 @@ namespace ITS.CloneProgram.Tests
 			_mockUserRepository.Setup(x => x.ValidateUser(It.IsAny<long>()))
 				.Returns(true);
 
-			var cloneProgram = new Services.CloneProgram(_mockUserRepository.Object);  
 			// Act
-			var result = cloneProgram.ValidateUser(1);
+			var result = _cloneProgram.ValidateUser(1);
 
 			// Assert
 			Assert.True(result);
@@ -31,11 +32,8 @@ namespace ITS.CloneProgram.Tests
 		[Fact]
 		public void ValidateUser_WithInvalidId_ReturnsFalse()
 		{
-			// Arrange
-			var cloneProgram = new Services.CloneProgram(_mockUserRepository.Object);  
-
 			// Act
-			var result = cloneProgram.ValidateUser(0);
+			var result = _cloneProgram.ValidateUser(0);
 
 			// Assert
 			Assert.False(result);
@@ -48,11 +46,10 @@ namespace ITS.CloneProgram.Tests
 			// Arrange
 			_mockUserRepository.Setup(x => x.ValidateUser(It.IsAny<long>()))
 				.Throws<Exception>();
-			var cloneProgram = new Services.CloneProgram(_mockUserRepository.Object);  
 
 			// Act & Assert
 			var ex = Assert.Throws<InvalidOperationException>(
-				() => cloneProgram.ValidateUser(1) 
+				() => _cloneProgram.ValidateUser(1) 
 			);
 			Assert.Equal("Error validating user", ex.Message);
 		}
@@ -62,11 +59,8 @@ namespace ITS.CloneProgram.Tests
 		[InlineData(0)]
 		public void ValidateUser_WithNonPositiveId_ReturnsFalse(long userId)
 		{
-			// Arrange
-			var cloneProgram = new Services.CloneProgram(_mockUserRepository.Object);  
-
 			// Act
-			var result = cloneProgram.ValidateUser(userId);
+			var result = _cloneProgram.ValidateUser(userId);
 
 			// Assert
 			Assert.False(result);
