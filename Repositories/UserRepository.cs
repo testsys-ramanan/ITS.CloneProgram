@@ -4,22 +4,25 @@ using ITS.CloneProgram.Models;
 using System.Data;
 using System.Data.SqlClient;
 
-public class UserRepository : IUserRepository
+namespace ITS.CloneProgram.Repositories
 {
-	private readonly string _connectionString;
-
-	public UserRepository(string connectionString)
+	public class UserRepository : IUserRepository
 	{
-		_connectionString = connectionString;
-	}
+		private readonly string _connectionString;
 
-	public bool ValidateUser(long userId)
-	{
-		using (IDbConnection db = new SqlConnection(_connectionString))
+		public UserRepository(string connectionString)
 		{
-			var result = db.QuerySingleOrDefault<User>
-				("SELECT * FROM Users WHERE UserId = @UserId", new { UserId = userId });
-			return result != null;
+			_connectionString = connectionString;
+		}
+
+		public bool ValidateUser(long userId)
+		{
+			using (IDbConnection db = new SqlConnection(_connectionString))
+			{
+				var result = db.QuerySingleOrDefault<User>
+					("SELECT * FROM Users WHERE UserId = @UserId", new { UserId = userId });
+				return result != null;
+			}
 		}
 	}
 }

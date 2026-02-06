@@ -2,7 +2,7 @@
 {
 	public class User
 	{
-		public long UserID { get; internal set; }
+		public long UserId { get; internal set; }
 		public string UserName { get; set; }
 		public string FirstName { get; set; }
 		public string Middle { get; set; }
